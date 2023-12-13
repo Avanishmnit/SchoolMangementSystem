@@ -1,18 +1,13 @@
 package com.avanish.schoolmangement.services;
 
-import java.util.List;
-import java.util.Optional;
-
+import com.avanish.schoolmangement.entities.*;
+import com.avanish.schoolmangement.repositories.CourseRepository;
+import com.avanish.schoolmangement.repositories.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.avanish.schoolmangement.entities.AssistantProfessor;
-import com.avanish.schoolmangement.entities.AssociateProfessor;
-import com.avanish.schoolmangement.entities.Course;
-import com.avanish.schoolmangement.entities.Professor;
-import com.avanish.schoolmangement.entities.Teacher;
-import com.avanish.schoolmangement.repositories.CourseRepository;
-import com.avanish.schoolmangement.repositories.TeacherRepository;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CourseService {
@@ -69,7 +64,7 @@ public class CourseService {
 		        Course course = courseRepository.findById(courseCode).orElse(null);
 
 		        if (teacher == null || course == null) {
-		            System.out.println("Invalid Teacher ID or Course Code.");
+		            System.out.println("Invalid Teacher ID hello or Course Code.");
 		        } else if (teacher instanceof Professor && course.getType().equals("Advanced")) {
 		            course.setAssignedTeacher(teacher);
 		            courseRepository.save(course);
