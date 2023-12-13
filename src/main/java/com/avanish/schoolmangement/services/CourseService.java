@@ -64,7 +64,10 @@ public class CourseService {
 		        Course course = courseRepository.findById(courseCode).orElse(null);
 
 		        if (teacher == null || course == null) {
+
 		            System.out.println("Invalidd Teacher ID or Course Code.");
+
+
 		        } else if (teacher instanceof Professor && course.getType().equals("Advanced")) {
 		            course.setAssignedTeacher(teacher);
 		            courseRepository.save(course);
